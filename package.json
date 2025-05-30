@@ -1,0 +1,35 @@
+{
+  "name": "img-toolkit-rust",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/resizeImage.js",
+  "types": "dist/types/resizeImage.d.ts",
+  "module": "dist/resizeImage.js",
+  "files": [
+    "dist",
+    "pkg"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/resizeImage.js",
+      "require": "./dist/resizeImage.js",
+      "types": "./dist/types/resizeImage.d.ts"
+    }
+  },
+  "scripts": {
+    "build:wasm": "wasm-pack build --target web",
+    "build:ts": "tsc",
+    "build": "npm run build:wasm && npm run build:ts",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "wasm",
+    "image",
+    "resize",
+    "toolkit",
+    "rust"
+  ]
+}

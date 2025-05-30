@@ -1,0 +1,15 @@
+{
+  "name": "img-toolkit-rust",
+  "type": "module",
+  "version": "0.0.0",
+  "files": [
+    "img_toolkit_rust_bg.wasm",
+    "img_toolkit_rust.js",
+    "img_toolkit_rust.d.ts"
+  ],
+  "main": "img_toolkit_rust.js",
+  "types": "img_toolkit_rust.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
