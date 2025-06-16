@@ -1,15 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
-export function resize_image(data: Uint8Array, options_json: string): Uint8Array;
+export function resize_image(data: Uint8Array, options: any): Uint8Array;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly resize_image: (a: number, b: number, c: number, d: number) => [number, number, number, number];
-  readonly __wbindgen_export_0: WebAssembly.Table;
+  readonly resize_image: (a: number, b: number, c: any) => [number, number, number, number];
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+  readonly __wbindgen_export_2: WebAssembly.Table;
   readonly __externref_table_dealloc: (a: number) => void;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_start: () => void;

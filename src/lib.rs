@@ -17,6 +17,7 @@ use image::codecs::png::{ CompressionType, PngEncoder };
 
 use std::io::Cursor;
 use serde::Deserialize;
+use serde_wasm_bindgen::from_value;
 
 #[derive(Deserialize)]
 struct ResizeOptions {
@@ -29,10 +30,10 @@ struct ResizeOptions {
 }
 
 #[wasm_bindgen]
-pub fn resize_image(data: &[u8], options_json: &str) -> Result<Box<[u8]>, JsValue> {
-    let options: ResizeOptions = serde_json
-        ::from_str(options_json)
-        .map_err(|e| JsValue::from_str(&format!("Invalid options: {}", e)))?;
+pub fn resize_image(data: &[u8], options: JsValue) -> Result<Box<[u8]>, JsValue> {
+    let options: ResizeOptions = from_value(options).map_err(|e|
+        JsValue::from_str(&format!("Invalid options: {}", e))
+    )?;
 
     let scale = 200.0;
     let value = ((options.brightness - 0.5) * scale).round() as i32;

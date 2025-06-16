@@ -24,9 +24,8 @@ export async function resizeImage(
 
   const buffer = await file.arrayBuffer();
   const uint8 = new Uint8Array(buffer);
-  const optionsJson = JSON.stringify(sanitizedOptions);
 
-  const result = resize_image(uint8, optionsJson);
+  const result = resize_image(uint8, sanitizedOptions);
   const mime =
     options.format === "jpg" ? "image/jpeg" : `image/${options.format}`;
 
